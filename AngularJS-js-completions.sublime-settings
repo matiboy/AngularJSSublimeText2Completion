@@ -1,0 +1,6 @@
+{
+	"js_completions": [
+		["$timeout\tAngularJS", "\\$timeout(${1: function() {\n}}, ${2: 1000});"],
+		["factory\tAngularJS", "\\.factory(['$1', function($1){\n}]);"]
+	]
+}
