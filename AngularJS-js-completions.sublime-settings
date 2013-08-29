@@ -2,6 +2,11 @@
 	"js_completions": [
 		["$timeout\tAngularJS", "\\$timeout(${1: function() {\n}}, ${2: 1000});"],
 		["factory\tAngularJS", "\\.factory(['$1', function($1){\n\n}]);"],
-		["controller\tAngularJS", "\\.controller('${1:Name}Ctrl', ['$scope', '$2', function($scope, $2){\n\n}]);"]
+		["controller\tAngularJS", "\\.controller('${1:Name}Ctrl', ['$scope', '$2', function($scope, $2){\n\n}]);"],
+		["route\tNode", "exports.${1:Name}=function(req,res){\n\t$2\n};"],
+		["require\tNode","var $1 = require('$1');\n"],
+		["_.find\tLodash", "_.find($1, function(${2:item}){\n\treturn $2.$3\n}"],
+		["_.each\tLodash","_.each($1,function(${2:value}, ${3:key}, ${4:collection}){\n\t$5\n}"],
+		["_.groupBy\tLodash","_.groupBy($1,function(${2:value}){\n\t$3\n}"]
 	]
 }
