@@ -7,26 +7,31 @@
 
 		//node
 		["route\tNode", "exports.${1:Name} = function(req, res, next){\n\t$2\n};"],
-		["require\tNode","var $1 = require('$1');\n"],
-		["next\tNode","next(new Error($1));$2"],
-		["log\tNode","console.log($1);$2"],
-		["param\tNode","var $1 = req.params.$1;"],
-		["export\tNode","var $1 = module.exports ={\n\t$2\n};"],
-		["module.exports\tNode","var $1 = module.exports = {\n\t$2\n};"],
-		["jsonp\tNode","res.jsonp($1);$2"],
+		["require\tNode", "var $1 = require('$1');\n"],
+		["next\tNode", "next(new Error($1));$2"],
+		["log\tNode", "console.log($1);$2"],
+		["param\tNode", "var $1 = req.params.$1;"],
+		["export\tNode", "var $1 = module.exports ={\n\t$2\n};"],
+		["export=\tNode", "exports.$1 = $1;"],
+		["module.exports\tNode", "var $1 = module.exports = {\n\t$2\n};"],
+		["jsonp\tNode", "res.jsonp($1);$2"],
+		["Request\tRequest", "request(${1:url},function(${2:err}, ${3:response}, ${4:body}){\n\tif(${2:err}){\n\t\tconsole.log(${2:err});\n\t\tres.jsonp($5);\n\t\tnext(new Error(${2:err}));\n\t}\n\tif(!_.isUndefined(${3:response}) && response.statusCode == 200){\n\t\tvar parsedBody = JSON.parse(${4:body});\n\t\t$6\n\t}\n});"],
 
 		//lodash
-		["re_\tLodash","var _ = require('lodash');\n$1"],
+		["_req\tLodash", "var _ = require('lodash');\n$1"],
 		["_.find\tLodash", "_.find($1, function(${2:item}){\n\treturn $2.$3\n});"],
-		["_.each\tLodash","_.each($1,function(${2:value}, ${3:key}, ${4:collection}){\n\t$5\n});"],
-		["_.groupBy\tLodash","_.groupBy($1,function(${2:value}){\n\t$3\n});"],
-		["_.template\tLodash","$1 = _.template(${1:url},{$2});"],
-		["_.isNull\tLodash","_.isNull($1)$2"],
-		["_.isUndefined\tLodash","_.isUndefined($1)$2"],
-		
-		["stringy\tJS","JSON.stringify($1);$2"],
-		
-		["Request\tRequest","request(${1:url},function(${2:err}, ${3:response}, ${4:body}){\n\tif(${2:err}){\n\t\tconsole.log(${2:err});\n\t\tres.jsonp($5);\n\t\tnext(new Error(${2:err}));\n\t}\n\tif(!_.isUndefined(${3:response}) && response.statusCode == 200){\n\t\tvar parsedBody = JSON.parse(${4:body});\n\t\t$6\n\t}\n});"]
+		["_.each\tLodash", "_.each($1,function(${2:value}, ${3:key}, ${4:collection}){\n\t$5\n});"],
+		["_.groupBy\tLodash", "_.groupBy($1,function(${2:value}){\n\t$3\n});"],
+		["_.template\tLodash", "$1 = _.template(${1:url},{$2});"],
+		["_.isNull\tLodash", "_.isNull($1)$2"],
+		["_.isUndefined\tLodash", "_.isUndefined($1)$2"],
+
+		// JS
+		["stringy\tJS", "JSON.stringify($1);$2"],
+		["promiseArray\tJS", "var ${1:promises} = [];\nvar ${2:deferred} = q.defer();\n${1:promises}.push(${2:deferred}.promise);"],
+		["promiseArrayThen\tJS", "q.all(${1:promises}).then(function ($2) {\n\t$3\n});"],
+		["promise\tJS", "var ${1:promise} = q.defer();\n${1:promise}.resolve();"]
+
 
 
 	]
